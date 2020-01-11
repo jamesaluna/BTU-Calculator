@@ -2,20 +2,15 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
-  PsychMain,
   eRelative,
   eWetBulb,
   eDewPoint
 } from './psych.js'
 
 
-
-
-
-
 function App() {
   return (
-    <div className="App">
+    <div claassName="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
