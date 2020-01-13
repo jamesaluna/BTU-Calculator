@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+/* Below are the primary stylings used in this calculator */
+/* Main Components are Capitalized */
+/* Smaller components are camel-case */
+
+:root {
+  --primary-color: #5AB6CB;
+  --secondary-color: #1392B0;
+  --third-color: #025B70;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* Header Styling  */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Header {
+  display: block;
+  width: 100vw;
+  min-height: 100px;
+  background-color: var(--primary-color);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.headerContent {
+  display: block;
+  width: 90%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.App-link {
-  color: #61dafb;
+.logo {
+  display: block;
+  width: 50%;
+  height: auto;
+  float: left;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo img {
+  display: block;
+  margin-top: 20px;
 }
