@@ -82,7 +82,7 @@ calculation function
 
 */
 
-class eRelative extends psychMain {
+class eRelative extends PsychMain {
   constructor(dryBulb, altitude, relative_humidity) {
     super(dryBulb, altitude);
     this.relative_humidity = relative_humidity;
@@ -94,7 +94,7 @@ class eRelative extends psychMain {
   }
 }
 
-class eWetBulb extends psychMain {
+class eWetBulb extends PsychMain {
   constructor(dryBulb, altitude, wetBulb) {
     super(dryBulb, altitude);
     this.wetBulb = wetBulb;
@@ -106,7 +106,7 @@ class eWetBulb extends psychMain {
     return w;
   }
 }
-class eDewPoint extends psychMain {
+class eDewPoint extends PsychMain {
   constructor(dryBulb, altitude, dewPoint) {
     super(dryBulb, altitude);
     this.dewPoint = dewPoint;
