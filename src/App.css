@@ -124,3 +124,19 @@
   margin-top: 30px;
   cursor: pointer;
 }
+.landingPageVideoWrapper {
+  display: block;
+  width: max-content;
+  height: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Landing Page Video */
+.landingPageVideo {
+  display: block;
+  width: 980px;
+  height: 400px;
+  background: #444;
+  margin-left: auto;
+  margin-right: auto;
+}
