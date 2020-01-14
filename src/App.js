@@ -7,6 +7,31 @@ import {
   eDewPoint
 } from './psych.js'
 
+// USER PAGES ARE THE FOLLOWING: 'landing', 'guide', 'calculator', and 'about'
+// User_Page will change upon onclick event on a linked button.
+
+var User_Page = 'landing'
+
+// Landing Page Component ('landing')
+
+function LandingPage() {
+  
+  // Custom styling goes here for imported components (positioning, padding, etc).
+
+  let landingVideoPosition = {
+    marginTop: '100px',
+    paddingBottom: '100px'
+  }
+  return (
+    <div>
+      <Header/>
+      <LandingVideo style={landingVideoPosition}/>
+    </div>
+  );
+}
+
+// Header Component (Used in each User_Page)
+
 function Header() {
   return (
     <div className="Header">
@@ -34,13 +59,19 @@ function Header() {
     </div>
   );
 }
-function Body() {
-  return (
-    <div className='Body'>
 
+// Landing Video for Landing Page - like will change component name to Video
+
+function LandingVideo(props) {
+  return (
+    <div className='landingPageVideoWrapper' style={props.style}>
+      <video className='landingPageVideo' width='980' height='400'></video>
     </div>
-  )
+  );
 }
+
+// Footer Component (to be continued..)
+
 function Footer() {
   return (
     <div className='Footer'>
@@ -50,13 +81,11 @@ function Footer() {
 }
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <Body />
-      <Footer />
-    </div>
-  );
+  switch (User_Page) {
+    case 'landing': 
+    return (<LandingPage />);
+    break;
+  }
 }
 
 export default App;
