@@ -6,6 +6,7 @@ import {
   eWetBulb,
   eDewPoint
 } from './psych.js'
+import { findByLabelText } from '@testing-library/react';
 
 // USER PAGES ARE THE FOLLOWING: 'landing', 'guide', 'calculator', and 'about'
 // User_Page will change upon onclick event on a linked button.
@@ -22,10 +23,26 @@ function LandingPage() {
     marginTop: '100px',
     paddingBottom: '100px'
   }
+  let landingVideoButtons = {
+    display: 'flex',
+    width: '75vw',
+    height: 'auto',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: '75px'
+  }
   return (
     <div>
       <Header/>
       <LandingVideo style={landingVideoPosition}/>
+      <div style={landingVideoButtons}>
+        <BorderButton name='Guide' />
+        <BorderButton name='Try' />
+        <BorderButton name='About' />
+      </div>
     </div>
   );
 }
@@ -69,7 +86,16 @@ function LandingVideo(props) {
     </div>
   );
 }
-
+function BorderButton(props) {
+  let button_name = props.name;
+  return (
+    <div className='borderButton'>
+      <div className='borderName'>
+        {button_name}
+      </div>
+    </div>
+  );
+}
 // Footer Component (to be continued..)
 
 function Footer() {
