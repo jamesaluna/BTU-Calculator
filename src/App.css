@@ -136,7 +136,42 @@
   display: block;
   width: 980px;
   height: 400px;
-  background: #444;
+  background: #eee;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Border Button */
+
+.borderButton {
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid #1392B0;
+  color: #025B70;
+  cursor: pointer;
+}
+.borderName {
+  display: block;
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+  transition: 0.2s all linear;
+}
+
+.borderButton:hover {
+  background: #1392B0;
+  border: none;
+  color: #F4F4F4;
 }
