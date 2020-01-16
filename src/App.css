@@ -93,8 +93,10 @@
   display: block;
   width: 100vw;
   min-height: 100px;
+  z-index: 10000;
   background-color: var(--primary-color);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
 }
 /* Header Content (95% of Main Header Block's width */
 
@@ -121,8 +123,9 @@
 .menu svg {
   display: block;
   float: right;
-  margin-top: 30px;
+  margin-top: 35px;
   cursor: pointer;
+  transform: scale(0.95)
 }
 .landingPageVideoWrapper {
   display: block;
@@ -174,4 +177,75 @@
   background: #1392B0;
   border: none;
   color: #F4F4F4;
+}
+
+/* Side Bar Styling */
+
+.sideBar {
+  display: block;
+  position: fixed;
+  top: 125;
+  right: 0;
+  width: 0px;
+  height: 100vh;
+  overflow: hidden;
+  background: #1392B0;
+  z-index: 10;
+  transition: 0.2s all ease;
+
+  /* Inner Shadow for Depth  */
+  -webkit-box-shadow: inset 0px 10px 4px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0px 10px 4px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 10px 4px 0px rgba(0,0,0,0.1);
+}
+.sideBarLinksWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: max-content;
+  height: 275px;
+  margin-top: 100px;
+  margin-left: 35px;
+}
+.sideBarLink {
+  display: block;
+  width: 80px;
+  height: auto;
+  text-align: right;
+  cursor: pointer;
+
+  /* Variables for ::after border and span transform */
+  --span-transform: translateX(0px);
+  --span-after-transform: translateX(0px);
+  --span-after-border: 5px solid #FAFAFA;
+}
+.sideBarLink:hover {
+  --span-transform: translateX(-2.5px);
+  --span-after-transform: translateX(2.5px);
+  --span-after-border: 5px solid #025B70;
+}
+.sideBarLink::after {
+  content: '';
+  position: relative;
+  top:-23px;
+  left: 100px;
+  display: block;
+  width: 1px;
+  height: 100%;
+  border-right: var(--span-after-border);
+  transform: var(--span-after-transform);
+  transition: 0.2s all ease;
+}
+.sideBarLink span {
+  display: inline-block;
+  width: max-content;
+  height: auto;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 23px;
+  text-align: right;
+  color: #FAFAFA;
+  transform: var(--span-transform);
+  transition: 0.2s all ease;
 }
