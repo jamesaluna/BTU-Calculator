@@ -6,7 +6,7 @@ import {
   eWetBulb,
   eDewPoint
 } from './psych.js'
-import { findByLabelText } from '@testing-library/react';
+import { findByLabelText, render } from '@testing-library/react';
 
 // USER PAGES ARE THE FOLLOWING: 'landing', 'guide', 'calculator', and 'about'
 // User_Page will change upon onclick event on a linked button.
@@ -16,16 +16,22 @@ var User_Page = 'landing'
 // Landing Page Component ('landing')
 
 function LandingPage() {
-  
   // Custom styling goes here for imported components (positioning, padding, etc).
+  let landingPageContent = {
+    display: 'block',
+    width: 'max-content',
+    height: 'max-content',
+    marginTop: '150px',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  }
 
   let landingVideoPosition = {
-    marginTop: '100px',
     paddingBottom: '100px'
   }
   let landingVideoButtons = {
     display: 'flex',
-    width: '75vw',
+    width: '70vw',
     height: 'auto',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -34,14 +40,18 @@ function LandingPage() {
     marginRight: 'auto',
     marginTop: '75px'
   }
+
   return (
     <div>
       <Header/>
-      <LandingVideo style={landingVideoPosition}/>
-      <div style={landingVideoButtons}>
-        <BorderButton name='Guide' />
-        <BorderButton name='Try' />
-        <BorderButton name='About' />
+      <SideBar />
+      <div style={landingPageContent}>
+        <LandingVideo style={landingVideoPosition}/>
+        <div style={landingVideoButtons}>
+          <BorderButton name='Guide' />
+          <BorderButton name='Try' />
+          <BorderButton name='About' />
+        </div>
       </div>
     </div>
   );
@@ -50,13 +60,29 @@ function LandingPage() {
 // Header Component (Used in each User_Page)
 
 function Header() {
+
+  /* Basic show/hide navigation function for side bar (will be generated on all pages) */
+  function showNav() {
+    let toggled = false;
+    return function() {
+      const navigation = document.querySelector('.sideBar');
+      if (toggled) {
+        navigation.style.width = '0px';
+        toggled = false;
+      } else {
+        navigation.style.width = '175px';
+        toggled = true;
+      }
+    }
+  }
+  const showNavTrigger = showNav();
   return (
     <div className="Header">
       <div className="headerContent">
         <div className="logo">
           <img src={require("./Icons/header_logo.svg")} />
         </div>
-        <div className="menu">
+        <div className="menu" onClick={showNavTrigger}>
           <svg
             width="43"
             height="31"
@@ -75,6 +101,23 @@ function Header() {
       </div>
     </div>
   );
+}
+function SideBar() {
+  return (
+    <div className='sideBar'>
+      <div className='sideBarLinksWrapper'>
+        <div className='sideBarLink'>
+          <span>Guide</span>
+        </div>
+        <div className='sideBarLink'>
+          <span>About</span>
+        </div>
+        <div className='sideBarLink'>
+          <span>Try</span>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 // Landing Video for Landing Page - like will change component name to Video
