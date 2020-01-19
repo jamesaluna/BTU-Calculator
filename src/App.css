@@ -127,6 +127,12 @@
   cursor: pointer;
   transform: scale(0.95)
 }
+.menu svg path {
+  transition: 0.2s all ease;
+}
+.menu:hover svg path {
+  fill: #025B70;
+}
 .landingPageVideoWrapper {
   display: block;
   width: max-content;
@@ -185,31 +191,41 @@
   display: block;
   position: fixed;
   top: 125;
-  right: 0;
-  width: 0px;
-  height: 100vh;
+  left: 0;
+  width: 100vw;
+  height: 0px;
   overflow: hidden;
   background: #1392B0;
   z-index: 10;
-  transition: 0.2s all ease;
+  transition: 0.2s height ease;
 
   /* Inner Shadow for Depth  */
   -webkit-box-shadow: inset 0px 10px 4px 0px rgba(0,0,0,0.1);
   -moz-box-shadow: inset 0px 10px 4px 0px rgba(0,0,0,0.1);
   box-shadow: inset 0px 10px 4px 0px rgba(0,0,0,0.1);
 }
+.sideBarContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 94%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
 .sideBarLinksWrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
-  width: max-content;
-  height: 275px;
-  margin-top: 100px;
-  margin-left: 35px;
+  width: 30%;
+  height: max-content;
+  margin-top: 40px;
+  margin-left: 0;
+  transform: scale(0.95);
 }
 .sideBarLink {
   display: block;
-  width: 80px;
+  width: max-content;
   height: auto;
   text-align: right;
   cursor: pointer;
@@ -217,25 +233,14 @@
   /* Variables for ::after border and span transform */
   --span-transform: translateX(0px);
   --span-after-transform: translateX(0px);
-  --span-after-border: 5px solid #FAFAFA;
+  --span-after-border: 5px solid #f0f0f0;
 }
 .sideBarLink:hover {
-  --span-transform: translateX(-2.5px);
-  --span-after-transform: translateX(2.5px);
+  --span-transform: translateX(2.5px);
+  --span-after-transform: translateX(-2.5px);
   --span-after-border: 5px solid #025B70;
 }
-.sideBarLink::after {
-  content: '';
-  position: relative;
-  top:-23px;
-  left: 100px;
-  display: block;
-  width: 1px;
-  height: 100%;
-  border-right: var(--span-after-border);
-  transform: var(--span-after-transform);
-  transition: 0.2s all ease;
-}
+
 .sideBarLink span {
   display: inline-block;
   width: max-content;
@@ -248,4 +253,19 @@
   color: #FAFAFA;
   transform: var(--span-transform);
   transition: 0.2s all ease;
+}
+.home-button-wrapper {
+  display: block;
+  width: max-content;
+  height: max-content;
+  float: right;
+  margin-left: 25px;
+  margin-top: 38px;
+  cursor: pointer;
+}
+.home-button-wrapper svg path {
+  transition: 0.2s all ease;
+}
+.home-button-wrapper:hover svg path{
+  fill: #025B70;
 }
