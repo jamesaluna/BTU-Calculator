@@ -3,9 +3,9 @@
 /* Smaller components are camel-case */
 
 :root {
-  --primary-color: #5AB6CB;
-  --secondary-color: #1392B0;
-  --third-color: #025B70;
+  --primary-color: #C2553F;
+  --secondary-color: #AE827D;
+  --third-color: #E798A0;
 }
 
 /* Roboto Font Import */ 
@@ -131,7 +131,7 @@
   transition: 0.2s all ease;
 }
 .menu:hover svg path {
-  fill: #025B70;
+  fill: #E798A0;
 }
 .landingPageVideoWrapper {
   display: block;
@@ -145,9 +145,10 @@
   display: block;
   width: 980px;
   height: 400px;
-  background: #eee;
+  background: rgb(230, 229, 229);
   margin-left: auto;
   margin-right: auto;
+  border-radius: 25px;
 }
 
 /* Border Button */
@@ -157,10 +158,10 @@
   position: relative;
   width: 150px;
   height: 50px;
-  background: transparent;
-  border: 1px solid #1392B0;
-  color: #025B70;
+  background: var(--third-color);
+  color: #FFFFFF;
   cursor: pointer;
+  border-radius: 5px;
 }
 .borderName {
   display: block;
@@ -179,12 +180,6 @@
   transition: 0.2s all linear;
 }
 
-.borderButton:hover {
-  background: #1392B0;
-  border: none;
-  color: #F4F4F4;
-}
-
 /* Side Bar Styling */
 
 .sideBar {
@@ -195,7 +190,7 @@
   width: 100vw;
   height: 0px;
   overflow: hidden;
-  background: #1392B0;
+  background: var(--secondary-color);
   z-index: 10;
   transition: 0.2s height ease;
 
@@ -217,7 +212,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 30%;
+  width: 25%;
   height: max-content;
   margin-top: 40px;
   margin-left: 0;
@@ -245,7 +240,6 @@
   display: inline-block;
   width: max-content;
   height: auto;
-  font-style: italic;
   font-weight: 300;
   font-size: 22px;
   line-height: 23px;
@@ -268,4 +262,59 @@
 }
 .home-button-wrapper:hover svg path{
   fill: #025B70;
+}
+
+
+/* Question Block Styling */
+
+.question-block-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 400px;
+  padding: 50px;
+}
+.question-block {
+  display: block;
+  width: 100%;
+  height: max-content;
+}
+.question-block h2 {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 42px;
+  line-height: 128.69%;
+  /* or 54px */
+  letter-spacing: 0.045em;
+  color: #444444;
+}
+.answer-block-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;;
+  width: 95%;
+}
+
+/* Annotated Border Button Styling */
+
+.annotatedBorderButton {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  height: auto;
+  align-items: center;
+  justify-content: center;;
+}
+
+.button_annotation {
+  display: block;
+  width: 85%;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #444444;
+  margin-top: 15px;
 }

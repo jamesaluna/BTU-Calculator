@@ -7,6 +7,10 @@ import {
   eDewPoint
 } from './psych.js'
 import { findByLabelText, render } from '@testing-library/react';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
+import Guide from "./pages/guide.js";
+import NoPage from "./pages/404.jsx";
+import About from "./pages/about.js";
 
 // USER PAGES ARE THE FOLLOWING: 'landing', 'guide', 'calculator', and 'about'
 // User_Page will change upon onclick event on a linked button.
@@ -53,6 +57,7 @@ function LandingPage() {
           <BorderButton name='About' />
         </div>
       </div>
+      <QuestionBlock />
     </div>
   );
 }
@@ -102,6 +107,9 @@ function Header() {
     </div>
   );
 }
+
+/* Side Bar Component */
+
 function SideBar() {
   return (
     <div className='sideBar'>
@@ -136,6 +144,10 @@ function LandingVideo(props) {
     </div>
   );
 }
+
+/* Border Button Component */
+// To add inner contents of button, add a 'name' attribtue to the button
+
 function BorderButton(props) {
   let button_name = props.name;
   return (
@@ -156,12 +168,57 @@ function Footer() {
   )
 }
 
-function App() {
-  switch (User_Page) {
-    case 'landing': 
-    return (<LandingPage />);
-    break;
+//Pages 
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: 'landing'
+    }
   }
+  render() {
+    return (
+      <LandingPage />
+    )
+  }
+}
+
+/* This is the question component, for user input */
+
+function QuestionBlock() {
+  return (
+    <div className='question-block-wrapper'>
+      <div className='question-block'>
+        <h2>Would you like to perform a duct traverse?</h2>
+      </div>
+      <div className='answer-block-wrapper'>
+        <BorderButton name='Yes'/>
+        <AnnotatedBorderButton name='No' description='I already have traversal points'/>
+      </div>
+    </div>
+  );
+}
+
+/* Annotated Button Component */
+// Annotated buttons require a name and description attribute.
+function AnnotatedBorderButton(props) {
+  return (
+    <div className='annotatedBorderButton'>
+      <BorderButton name={props.name}/>
+      <span className='button_annotation'>{props.description}</span>
+    </div>
+  );
+}
+
+/* Duct Probe Component */
+
+function DuctProbe() {
+  return (
+    <div>
+
+    </div>
+  );
 }
 
 export default App;
